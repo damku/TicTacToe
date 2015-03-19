@@ -1,4 +1,3 @@
-@@ -1,37 +0,0 @@
 <html>
 	<head>
 		<style type="text/css">
@@ -6,142 +5,137 @@
 		.auto-div{width:40%; margin: 0 auto; padding:0;}
 		.toy-wrraper{ float:left; width:100%; margin:0px; padding:0px; border:5px solid #666}
 		.row{width:100%;}
-		.col{width:32.9%; float: left; border:solid #FFF 1px; height: 150px; font-size: 5em; text-align: center; background:#afafaf; color: white; line-height: 2;}		</style>
+		.col{width:32.9%; float: left; border:solid #FFF 1px; height: 150px; font-size: 5em;
+		text-align: center; background:#afafaf; color: white; line-height: 2;}	
+		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script type="text/javascript">
-		@@ -1,4 +0,0 @@
-/*! jQuery v1.11.1 | (c) 2005, 2014 jQuery Foundation, Inc. | jquery.org/license */
-!function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.1",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCa...(line truncated)...
-if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c.pop()||m.guid++:h),j[k]||(j[k]=i?{}:{toJSON:m.noop}),("object"==typeof b||"function"==typeof b)&&(e?j[k]=m.extend(j[k],b):j[k].data=m.extend(j[k].data,b)),g=j[k],e||(g.data||(g.data={}),g=g.data),void 0!==d&&(g[m.camelCase(b)]=d),"string"==typeof b?(f=g[b],null==f&&(f=g[m.camelCase(b)])):f=g,f}}function R(a,b,c){if(m.acceptData(a)){var d,e,f=a.nodeType,g=f?m.cache:a,h=f?a[m.expando]:m.expando;if(g[h]){if(b&&(d=c?g[h]:g[h].data)...(line truncated)...
-},cur:function(){var a=Zb.propHooks[this.prop];return a&&a.get?a.get(this):Zb.propHooks._default.get(this)},run:function(a){var b,c=Zb.propHooks[this.prop];return this.pos=b=this.options.duration?m.easing[this.easing](a,this.options.duration*a,0,1,this.options.duration):a,this.now=(this.end-this.start)*b+this.start,this.options.step&&this.options.step.call(this.elem,this.now,this),c&&c.set?c.set(this):Zb.propHooks._default.set(this),this}},Zb.prototype.init.prototype=Zb.prototype,Zb.propHooks={_default:{get...(line truncated)...
-		</script>
-		<script type="text/javascript">
-		@@ -1,126 +0,0 @@
 
-function random_num () {
-	return parseInt(Math.random()*(10-1)+1);
-		}
-function my_function()
-			{
-		var temp=prompt("Enter your choice 'x' or '0'");
-
-				if (temp=='x'||temp=='0') {
-					alert("your choice is perfect true  now play game");
-					return temp;
-				}	
-				else
-				{
-					my_function();
-				}
-			}
-var counter=0;
-$(document).ready(function ()
-	{	
-		var user;
-		var comp;
-		temp=my_function();
-		if(temp.valueOf()=='x')
-		{
-			user='x'
-			comp='0';
-		}
-		else
-		{
-			user='0';
-			comp='x';
-		}
-		function computer()
-		{
-			div_id=random_num();
-			if(counter<9)
-				{
-					if($('#'+div_id).html()!='0' && $('#'+div_id).html()!='x')
+			function random_num () {
+				return parseInt(Math.random()*(10-1)+1);
+					}
+			function my_function()
+						{
+					var temp=prompt("Enter your choice 'x' or '0'");
+			
+							if (temp=='x'||temp=='0') {
+								alert("your choice is perfect true  now play game");
+								return temp;
+							}	
+							else
+							{
+								my_function();
+							}
+						}
+			var counter=0;
+			$(document).ready(function ()
+				{	
+					var user;
+					var comp;
+					temp=my_function();
+					if(temp.valueOf()=='x')
 					{
-						$('#'+div_id).html(comp);
-						setTimeout(winner,1500);
-						//winner();
-						counter++;
+						user='x'
+						comp='0';
 					}
 					else
 					{
-						computer();
+						user='0';
+						comp='x';
 					}
-				}
-			else{return false;}
-		}
-	$('.col').click(function()
-		{
-				if(counter<=9)
+					function computer()
 					{
-						if($(this).html()!='0' && $(this).html()!='x')
-						{
-							$(this).html(user);
-							setTimeout(winner,1500);
-							counter++;	
-							setTimeout(computer,2000);	
-						}
-						else
-						{
-							alert("you can not click here");
-							return false;
-						}
+						div_id=random_num();
+						if(counter<9)
+							{
+								if($('#'+div_id).html()!='0' && $('#'+div_id).html()!='x')
+								{
+									$('#'+div_id).html(comp);
+									setTimeout(winner,1500);
+									//winner();
+									counter++;
+								}
+								else
+								{
+									computer();
+								}
+							}
+						else{return false;}
 					}
-				else{return false;}
-		});
-		function winner()
-		{
-			if((($('#1').html()=='x') && ($('#2').html()=='x') && ($('#3').html()=='x'))||
-			(($('#4').html()=='x') && ($('#5').html()=='x') && ($('#6').html()=='x'))||
-			($('#7').html()=='x' && $('#8').html()=='x' && $('#9').html()=='x')||
-			($('#1').html()=='x' && $('#4').html()=='x' && $('#7').html()=='x')||
-			($('#2').html()=='x' && $('#5').html()=='x' && $('#8').html()=='x')||
-			($('#3').html()=='x' && $('#6').html()=='x' && $('#9').html()=='x')||
-			($('#1').html()=='x' && $('#5').html()=='x' && $('#9').html()=='x')||
-			($('#3').html()=='x' && $('#5').html()=='x' && $('#7').html()=='x'))
-				{
-					if('x'==user)
-						{
-						alert('Congrets you won this game');
-						window.location.reload();
-						return false;
-						}
-					else
+				$('.col').click(function()
 					{
-						alert('You lost this time Try Again');
-						window.location.reload();
-						return false;
-					}
-				}
-
-			 else if(($('#1').html()=='0' && $('#2').html()=='0' && $('#3').html()=='0')||
-			($('#4').html()=='0' && $('#5').html()=='0' && $('#6').html()=='0')||
-			($('#7').html()=='0' && $('#8').html()=='0' && $('#9').html()=='0')||
-			($('#1').html()=='0' && $('#4').html()=='0' && $('#7').html()=='0')||
-			($('#2').html()=='0' && $('#5').html()=='0' && $('#8').html()=='0')||
-			($('#3').html()=='0' && $('#6').html()=='0' && $('#9').html()=='0')||
-			($('#1').html()=='0' && $('#5').html()=='0' && $('#9').html()=='0')||
-			($('#3').html()=='0' && $('#5').html()=='0' && $('#7').html()=='0'))
-				{
-					if('0'==user)
-						{
-						alert('Congrets you won this game');
-						window.location.reload();
-						return false;
-						}
-					else
+							if(counter<=9)
+								{
+									if($(this).html()!='0' && $(this).html()!='x')
+									{
+										$(this).html(user);
+										setTimeout(winner,1500);
+										counter++;	
+										setTimeout(computer,2000);	
+									}
+									else
+									{
+										alert("you can not click here");
+										return false;
+									}
+								}
+							else{return false;}
+					});
+					function winner()
 					{
-						alert('You lost this time Try Again');
-						window.location.reload();
-						return false;
+						if((($('#1').html()=='x') && ($('#2').html()=='x') && ($('#3').html()=='x'))||
+						(($('#4').html()=='x') && ($('#5').html()=='x') && ($('#6').html()=='x'))||
+						($('#7').html()=='x' && $('#8').html()=='x' && $('#9').html()=='x')||
+						($('#1').html()=='x' && $('#4').html()=='x' && $('#7').html()=='x')||
+						($('#2').html()=='x' && $('#5').html()=='x' && $('#8').html()=='x')||
+						($('#3').html()=='x' && $('#6').html()=='x' && $('#9').html()=='x')||
+						($('#1').html()=='x' && $('#5').html()=='x' && $('#9').html()=='x')||
+						($('#3').html()=='x' && $('#5').html()=='x' && $('#7').html()=='x'))
+							{
+								if('x'==user)
+									{
+									alert('Congrets you won this game');
+									window.location.reload();
+									return false;
+									}
+								else
+								{
+									alert('You lost this time Try Again');
+									window.location.reload();
+									return false;
+								}
+							}
+			
+						 else if(($('#1').html()=='0' && $('#2').html()=='0' && $('#3').html()=='0')||
+						($('#4').html()=='0' && $('#5').html()=='0' && $('#6').html()=='0')||
+						($('#7').html()=='0' && $('#8').html()=='0' && $('#9').html()=='0')||
+						($('#1').html()=='0' && $('#4').html()=='0' && $('#7').html()=='0')||
+						($('#2').html()=='0' && $('#5').html()=='0' && $('#8').html()=='0')||
+						($('#3').html()=='0' && $('#6').html()=='0' && $('#9').html()=='0')||
+						($('#1').html()=='0' && $('#5').html()=='0' && $('#9').html()=='0')||
+						($('#3').html()=='0' && $('#5').html()=='0' && $('#7').html()=='0'))
+							{
+								if('0'==user)
+									{
+									alert('Congrets you won this game');
+									window.location.reload();
+									return false;
+									}
+								else
+								{
+									alert('You lost this time Try Again');
+									window.location.reload();
+									return false;
+								}
+							}
+						else if(counter==9)
+							{
+								alert('Match is drow');
+								window.location.reload();
+								return false;
+							};
 					}
-				}
-			else if(counter==9)
-				{
-					alert('Match is drow');
-					window.location.reload();
-					return false;
-				};
-		}
-	});
+				});
 		</script>
 		<title>TicTacToe</title>
 	</head>
@@ -169,4 +163,3 @@ $(document).ready(function ()
         </div>
 	</body>
 </html>
- No newline at end of file
